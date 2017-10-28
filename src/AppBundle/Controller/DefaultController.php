@@ -29,7 +29,7 @@ class DefaultController extends Controller
             //Get latest 9 Blog Posts data 
            $latestposts = $rep->mylatestdata(9);
 
-        // the twig templates and it's variables
+        // the twig template and it's variables
         return $this->render('default/index.html.twig',array('cats' => $cats,'posts'=> $posts,'latestposts'=>$latestposts ));
     }
 
@@ -61,7 +61,7 @@ class DefaultController extends Controller
 
 
             
-          // the twig templates and it's variables
+          // the twig template and it's variables
         return $this->render('default/single.html.twig',array('cats' => $cats,'posts'=> $posts ));
     }
 

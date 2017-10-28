@@ -45,13 +45,11 @@ class BlogPostRepository extends \Doctrine\ORM\EntityRepository
 public function postByCategory($id)
 	{
 	
-	return $this->createQueryBuilder('u')
-   
-    ->andWhere('u.category_id = :id')
-    ->setParameter('id', $id)
-    ->getQuery()
-    ->getResult()
-;
+	      return $this->createQueryBuilder('u')
+           ->andWhere('u.category_id = :id')
+           ->setParameter('id', $id)
+           ->getQuery()
+           ->getResult();
 	}
 
 

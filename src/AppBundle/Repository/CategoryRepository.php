@@ -15,11 +15,10 @@ class CategoryRepository extends \Doctrine\ORM\EntityRepository
 	 public function mydata($offset)
 	{
 
-    return $this->createQueryBuilder('u')
-    ->setMaxResults($offset)
-    ->getQuery()
-    ->getResult()
-;
+       return $this->createQueryBuilder('u')
+         ->setMaxResults($offset)
+         ->getQuery()
+         ->getResult();
 	}
 }
 
