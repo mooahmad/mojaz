@@ -44,8 +44,7 @@ class BlogPostRepository extends \Doctrine\ORM\EntityRepository
   // Get all Category posts with ID
 public function postByCategory($id)
 	{
-	
-	      return $this->createQueryBuilder('u')
+	    return $this->createQueryBuilder('u')
            ->andWhere('u.category_id = :id')
            ->setParameter('id', $id)
            ->getQuery()
