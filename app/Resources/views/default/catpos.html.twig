@@ -1,0 +1,131 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block nav %}
+
+
+
+
+{{ include('nav.html.twig ') }}
+
+
+{% endblock %}
+{% block body %}
+   
+
+<section class="contents">
+            <div class="container">
+                <!--Gallery Section-->
+                <div class="gallery-section page-galery">
+                    <div class="auto-container">
+                        <div class="mixitup-gallery">
+
+<div class="col-xs-8 col-xs-offset-2 label  moj">
+            <div class="input-group">
+               
+<h3 class="alert alert success total"> Total Posts : {{ pagination.getTotalItemCount }} </h3>
+          
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-mojj dropdown-toggle" data-toggle="dropdown">
+                        <span id="search_concept">Filter by</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</li>
+                      <li>{{ knp_pagination_sortable(pagination, 'Title', 'a.title') }}</li>
+                     
+                    </ul>
+                </div>
+                  </div>
+        </div>
+
+
+
+
+
+
+
+                            <!--Filter-->
+                            
+
+                            <!--Filter List-->
+                            <div class="filter-list row clearfix" style="position: relative; height: 978.9px;">
+
+                                <!--Default Portfolio Item-->
+
+                                 {% for article in pagination %}
+                                <div class="col-md-4 col-sm-6  project-item  photoshop" style="position: absolute; left: 0%; top: 0px;">
+                                   
+<div class="post-item" style="">
+                        <a href="{{path('singlepost',{'id':article.id})}}" class="overtlink"></a>
+                        <div class="overlay-box">
+                            <span class="cat"><a href="#">{{cat.name}}</a></span>
+                            <h4><a href="#">{{ article.title }}</a></h4>
+                            
+                        </div>
+                    </div>
+
+
+                                </div>
+
+                                {% endfor%}
+
+                                <!--Default Portfolio Item-->
+                              
+                                <!--Default Portfolio Item-->
+                                  <!--Default Portfolio Item-->
+                                
+                            </div>
+
+                            <!-- Styled Pagination -->
+                            <ul class="pagination">
+                                
+                                <li>{{ knp_pagination_render(pagination) }}</li>
+                                
+                            </ul>
+
+                           
+                    </div>
+                </div>
+                <!--Gallery Section end-->
+            </div>
+
+        </section>
+
+
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
+    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+    h1 { font-size: 36px; }
+    h2 { font-size: 21px; margin-bottom: 1em; }
+    p { margin: 0 0 1em 0; }
+    a { color: #0000F0; }
+    a:hover { text-decoration: none; }
+    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
+    #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
+    #container { padding: 2em; }
+    #welcome, #status { margin-bottom: 2em; }
+    #welcome h1 span { display: block; font-size: 75%; }
+    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
+    #icon-book { display: none; }
+
+    @media (min-width: 768px) {
+        #wrapper { width: 80%; margin: 2em auto; }
+        #icon-book { display: inline-block; }
+        #status a, #next a { display: block; }
+
+        @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+        .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
+    }
+
+
+   
+
+
+</style>
+{% endblock %}

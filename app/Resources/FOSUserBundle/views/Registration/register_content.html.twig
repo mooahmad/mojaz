@@ -1,0 +1,129 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+ <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+           
+  
+
+
+
+
+
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Register</div>
+                       
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                           
+
+
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': ' form-horizontal'}}) }}
+    {{ form_widget(form) }}
+   
+    <div class="mojaz-div">
+        <input type="submit" value="{{ 'registration.submit'|trans }}"  class="btn btn-primary moo"/>
+    </div>
+{{ form_end(form) }}
+
+
+
+
+
+ </div>                     
+                    </div>  
+        </div>
+      
+
+               
+               
+                
+         </div> 
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block stylesheets %}
+<style>
+    
+
+     input, select, textarea {
+
+
+
+    position: relative;
+z-index: 2;
+float: left;
+width: 100%;
+margin-bottom: 0;
+
+display: block;
+width: 100%;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+-webkit-transition: border-color ease-in-o
+    ut .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+.mojaz-div {
+    width: 19%;
+    padding-top: 12px;
+    margin-top: 43px;
+}
+</style>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
