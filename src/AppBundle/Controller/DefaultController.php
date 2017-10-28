@@ -14,20 +14,22 @@ class DefaultController extends Controller
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
+
+
+
     {
-        
-           
+            //Get all Blog Posts data
+           $rep = $this->getDoctrine()->getRepository('AppBundle:BlogPost');
+            //Get all Category data 
            $repo = $this->getDoctrine()->getRepository('AppBundle:Category');
-$cats = $repo->mydata(5);
+            //Get Only 5 Categories data 
+           $cats = $repo->mydata(5);
+            //Get Only 5 Blog Posts data 
+           $posts = $rep->mypostsdata(5);
+            //Get latest 9 Blog Posts data 
+           $latestposts = $rep->mylatestdata(9);
 
-
- $rep = $this->getDoctrine()->getRepository('AppBundle:BlogPost');
-$posts = $rep->mypostsdata(5);
-
-
-$latestposts = $rep->mylatestdata(9);
-
-        // replace this example code with whatever you need
+        // the twig templates and it's variables
         return $this->render('default/index.html.twig',array('cats' => $cats,'posts'=> $posts,'latestposts'=>$latestposts ));
     }
 
@@ -43,23 +45,23 @@ $latestposts = $rep->mylatestdata(9);
     public function singlePost(Request $request, $id)
 
 
-
-    {
+              
+    {     // here's the single post data
         
-           
+            //Get all Category data
            $repo = $this->getDoctrine()->getRepository('AppBundle:Category');
+            //Get all Blog Posts data
            $rep = $this->getDoctrine()->getRepository('AppBundle:BlogPost');
+           
+            //Get the specific Post data with it's ID
+           $posts = $rep->find($id);
 
-$cats = $repo->mydata(5);
+            //Get Only 5 Categories data 
+           $cats = $repo->mydata(5);
 
 
- $rep = $this->getDoctrine()->getRepository('AppBundle:BlogPost');
-$posts = $rep->find($id);
-
-
-// $latestposts = $rep->mylatestdata(9);
-
-        // replace this example code with whatever you need
+            
+          // the twig templates and it's variables
         return $this->render('default/single.html.twig',array('cats' => $cats,'posts'=> $posts ));
     }
 
@@ -72,17 +74,19 @@ $posts = $rep->find($id);
 
 
     {
-        
+        // a specific category posts
            
+            //Get all Category data
            $repo = $this->getDoctrine()->getRepository('AppBundle:Category');
+            //Get all Blog Posts data
            $rep = $this->getDoctrine()->getRepository('AppBundle:BlogPost');
-
+            
+            //Get Only 5 Categories data 
            $cats = $repo->mydata(5);
+            // Get a specific category posts
            $cat = $repo->find($id);
 
-
- //$rep = $this->getDoctrine()->getRepository('AppBundle:BlogPost');
-           $posts = $cat->getBlogPosts();
+            // the category posts with its relationship.
            $query = $cat->getBlogPosts();
 
         $paginator  = $this->get('knp_paginator');
@@ -93,10 +97,6 @@ $posts = $rep->find($id);
     );
 
 
-
-// $latestposts = $rep->mylatestdata(9);
-
-        // replace this example code with whatever you need
         return $this->render('default/catpos.html.twig',array('cats' => $cats,'cat' => $cat,'posts'=> $posts ,'pagination'=>$pagination));
     }
 
@@ -110,21 +110,23 @@ $posts = $rep->find($id);
 
 
 
-    {
-        
-           
-           $repo = $this->getDoctrine()->getRepository('AppBundle:Category');
-           $rep = $this->getDoctrine()->getRepository('AppBundle:BlogPost');
+    {    
 
+      // All posts
+           
+            //Get all Category data
+           $repo = $this->getDoctrine()->getRepository('AppBundle:Category');
+            //Get all Blog Posts data
+           $rep = $this->getDoctrine()->getRepository('AppBundle:BlogPost');
+            
+            //Get All Posts
            $query = $rep->findAll();
           
-
-           
-
+            //Get only 5 Categories
            $cats = $repo->mydata(5);
            
            
-
+            
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
         $query, /* query NOT result */
@@ -134,8 +136,6 @@ $posts = $rep->find($id);
 
        
 
-
-        // replace this example code with whatever you need
         return $this->render('default/posts.html.twig',array('pagination'=>$pagination,'cats' => $cats));
     }
 
@@ -149,12 +149,14 @@ $posts = $rep->find($id);
 
     {
         
-           
-           $repo = $this->getDoctrine()->getRepository('AppBundle:Category');
-$cats = $repo->mydata(5);
+           //Get All Categories
 
- 
-        // replace this example code with whatever you need
+
+           $repo = $this->getDoctrine()->getRepository('AppBundle:Category');
+           
+           $cats = $repo->mydata(5);
+
+
         return $this->render('base.html.twig',array('cats' => $cats,'posts'=> $posts));
     }
 }

@@ -11,17 +11,12 @@ namespace AppBundle\Repository;
 class CategoryRepository extends \Doctrine\ORM\EntityRepository
 {
 
-
+      //Get Max X resaults of data
 	 public function mydata($offset)
 	{
-	
 
-
-
-	return $this->createQueryBuilder('u')
-   
+    return $this->createQueryBuilder('u')
     ->setMaxResults($offset)
-
     ->getQuery()
     ->getResult()
 ;

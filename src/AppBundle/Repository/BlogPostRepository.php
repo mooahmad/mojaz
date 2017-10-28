@@ -12,31 +12,27 @@ class BlogPostRepository extends \Doctrine\ORM\EntityRepository
 {
 
 
+
+
+     //get max X results of data
 	 public function mypostsdata($offset)
 	{
-	
-
 
 
 	return $this->createQueryBuilder('u')
    
     ->setMaxResults($offset)
-
     ->getQuery()
     ->getResult()
 ;
 	}
 
 
-
+     //set latest X results of data
  public function mylatestdata($offset)
 	{
 	
-
-
-
 	return $this->createQueryBuilder('u')
-   
     ->setMaxResults($offset)
     ->orderBy('u.id', 'DESC')
     ->getQuery()
@@ -45,18 +41,14 @@ class BlogPostRepository extends \Doctrine\ORM\EntityRepository
 	}
 
 
+  // Get all Category posts with ID
 public function postByCategory($id)
 	{
 	
-
-
-
 	return $this->createQueryBuilder('u')
    
-    
     ->andWhere('u.category_id = :id')
-->setParameter('id', $id)
-
+    ->setParameter('id', $id)
     ->getQuery()
     ->getResult()
 ;
