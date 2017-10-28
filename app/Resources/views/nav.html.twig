@@ -10,19 +10,14 @@
 
                               {% if is_granted('ROLE_USER') %}
 
+                             <li><a href="{{ path('fos_user_security_logout') }}" class="btn btn-default ">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+                              
+                              {% else %}
 
 
- <li><a href="{{ path('fos_user_security_logout') }}" class="btn btn-default ">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
-
-
-
-
-                {% else %}
-
-
-                    <li><a href="{{ path('fos_user_security_login') }}"  class="btn btn-default " >Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+                             <li><a href="{{ path('fos_user_security_login') }}"  class="btn btn-default " >Login <span class="glyphicon glyphicon-log-in"></span></a></li>
                               <li><a href="{{path('fos_user_registration_register')}}"  class="btn btn-default " >Register <span class="fa fa-registered"></span></a></li>
-{% endif %}
+                               {% endif %}
                            
                         </ul>
 
@@ -43,26 +38,14 @@
 
                                     {%for cat in cats%}
                                    
-
-
-
-                                  
-
                                     <li class="dropdown"><a href="{{path('catposts',{'id':cat.id})}}">{{cat.name}}</a>
                                        
-
-
-
- <ul>
-                                           
-
-                                       {%for post in cat.getBlogPosts() %}
+                                       <ul>
+                                         {%for post in cat.getBlogPosts() %}
 
                                             <li><a href="{{path('singlepost',{'id':post.id})}}">{{post.title}}</a>
-                                               
                                             </li>
-
-                                            {% endfor%}
+                                          {% endfor%}
                                             
                                             </ul>
                                        
