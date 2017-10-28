@@ -17,17 +17,17 @@
 
 
 <section class="contents">
-            <div class="container">
+  <div class="container">
                 <!--Gallery Section-->
                 <div class="gallery-section page-galery">
                     <div class="auto-container">
                         <div class="mixitup-gallery">
 
 
-<div class="col-xs-8 col-xs-offset-2 label  moj">
+       <div class="col-xs-8 col-xs-offset-2 label  moj">
             <div class="input-group">
                
-<h3 class="alert alert success total"> Total Posts : {{ pagination.getTotalItemCount }} </h3>
+             <h3 class="alert alert success total"> Total Posts : {{ pagination.getTotalItemCount }} </h3>
           
                 <div class="input-group-btn search-panel">
                     <button type="button" class="btn btn-mojj dropdown-toggle" data-toggle="dropdown">
@@ -39,12 +39,12 @@
                      
                     </ul>
                 </div>
-                  </div>
+            </div>
         </div>
 
 
 
-
+ 
 
 
 
@@ -59,19 +59,16 @@
                                  {% for article in pagination %}
                                 <div class="col-md-4 col-sm-6  project-item  photoshop" style="position: absolute; left: 0%; top: 0px;">
                                    
-<div class="post-item" style="">
-                        <a href="{{path('singlepost',{'id':article.id})}}" class="overtlink"></a>
-                        <div class="overlay-box">
-                            <span class="cat"><a href="#">{{article.getCategory().name}}</a></span>
-                            <h4><a href="#">{{ article.title }}</a></h4>
-                           
-                        </div>
-                    </div>
+                                   <div class="post-item" style="">
+                                     <a href="{{path('singlepost',{'id':article.id})}}" class="overtlink"></a>
+                                     <div class="overlay-box">
+                                     <span class="cat"><a href="#">{{article.getCategory().name}}</a></span>
+                                     <h4><a href="#">{{ article.title }}</a></h4>
+                                      </div>
+                                      </div>
+                                   </div>
 
-
-                                </div>
-
-                                {% endfor%}
+                                 {% endfor%}
 
                                 <!--Default Portfolio Item-->
                               
@@ -93,7 +90,7 @@
                 <!--Gallery Section end-->
             </div>
 
-        </section>
+    </section>
 
  
 

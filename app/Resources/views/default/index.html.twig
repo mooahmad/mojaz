@@ -17,7 +17,7 @@
 
 
 
-
+<!-- posts  carousel -->
  <section class="blog-carousel">
          
 
@@ -43,7 +43,7 @@
             </div>
 
            
-        </section>
+ </section>
 
 
 
@@ -58,24 +58,12 @@
                             <!-- blog-item Post -->
                            
           
-
-                  
-
+        <h1 class="header text-center"><span>Latest Posts</span></h1>
 
 
-                                       
-              <h1 class="header text-center"><span>Latest Posts</span></h1>
+         <!-- All Posts -->
 
-
-
-
-
-
-
-
-
-
-<div class="filter-list row clearfix" style="position: relative; height: 978.9px;">
+        <div class="filter-list row clearfix" style="position: relative; height: 978.9px;">
 
                                 <!--Default Portfolio Item-->
                           
@@ -84,29 +72,29 @@
                                 <div class="col-md-4 col-sm-6  project-item  photoshop" style="position: absolute; left: 0%; top: 0px;">
 
 
-                                <div class="post-item" style="">
+                                 <div class="post-item" style="">
 
-                        <a href="{{path('singlepost',{'id':latest_p.id})}}" class="overtlink"></a>
+                                    <a href="{{path('singlepost',{'id':latest_p.id})}}" class="overtlink"></a>
                         
-                        <div class="overlay-box">
-                            <span class="cat"><a href="#">{{latest_p.getCategory().name}}</a></span>
-                            <h4><a href="#">{{latest_p.title}}</a></h4>
-                        </div>
-                    </div>
-
-
-
+                                   <div class="overlay-box">
+                                     <span class="cat"><a href="#">{{latest_p.getCategory().name}}</a></span>
+                                      <h4><a href="#">{{latest_p.title}}</a></h4>
+                                   </div>
+                                  </div>
+ 
                                 </div>
 
 
-{% endfor%}
+                          {% endfor%}
 
 
-                        </div>
+        </div>
+                        <!--pagination -->
+
                         <div class="pagination">
                            <a href="{{path('posts')}}" class="btn-mojaz-black"> Load More</a>
                         </div>
-                    </div>
+                        </div>
                    
 
         </section>
